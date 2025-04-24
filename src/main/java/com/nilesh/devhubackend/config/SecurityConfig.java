@@ -22,7 +22,7 @@ public class SecurityConfig {
                         .requestMatchers("/api/users/signup",  "/api/users/login").permitAll() // Allow public access
                         .anyRequest().authenticated()
                 );
-
+        
         return http.build();
     }
 
