@@ -36,5 +36,17 @@ public class UserController {
         }
         return ResponseEntity.status(401).body("Invalid credentials");
     }
+    @GetMapping("/check-auth")
+    public ResponseEntity<Boolean> checkAuthentication() {
+        boolean isAuthenticated = userService.isUserAuthenticated();
+        return ResponseEntity.ok(isAuthenticated);
+    }
+
+    @PostMapping("/logout")
+    public ResponseEntity<String> logoutUser() {
+        userService.logoutUser();
+        return ResponseEntity.ok("Logged out successfully");
+    }
+
 
 }
